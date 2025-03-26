@@ -14,7 +14,7 @@ for i in range(N):
     if X >= 4000 and F[i][0] - F[i][1] > 0:
         sum = sum - F[i][1] + F[i][0]
         X -= 4000
-    elif X < 0:
+    else:
         break
 
 print(sum)
