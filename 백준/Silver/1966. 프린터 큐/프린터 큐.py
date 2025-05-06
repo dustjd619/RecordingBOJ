@@ -1,8 +1,4 @@
-import sys
 from collections import deque
-
-input = sys.stdin.readline
-print = sys.stdout.write
 
 T = int(input())
 
@@ -17,6 +13,6 @@ for i in range(T):
         else:
             count += 1
             if rank.popleft()[1] == M:
-                print(str(count) + "\n")
+                print(count)
             else:
                 continue
