@@ -1,16 +1,17 @@
-import sys
 from collections import deque
-
-input = sys.stdin.readline
-print = sys.stdout.write
 
 N = int(input())
 
-a = deque(range(1, N + 1))
+dq = deque()
+for i in range(1, N + 1):
+    dq.append(i)
 
+while len(dq) != 1:
+    dq.popleft()
 
-while len(a) != 1:
-    a.popleft()
-    a.rotate(-1)
+    if len(dq) != 0:
+        a = dq[0]
+        dq.popleft()
+        dq.append(a)
 
-print(str(a[0]))
+print(dq[0])
