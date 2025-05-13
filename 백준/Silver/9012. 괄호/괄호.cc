@@ -1,4 +1,5 @@
 #include <iostream>
+#include <stack>
 #define endl "\n"
 using namespace std;
 
@@ -8,24 +9,36 @@ int main()
     cin >> T;
     while (T--)
     {
+        stack<int> ps;
+
         string S;
         cin >> S;
 
-        int res = 0;
+        bool flag = true; 
         for (char a : S)
         {
             if (a == '(')
-                res++;
-
-            else
-                res--;
-
-            if (res < 0)
             {
-                break;
+                ps.push(a);
+            }
+            else
+            {
+                if (ps.empty())
+                {
+                    flag = false;
+                }
+                else
+                {
+                    ps.pop();
+                }
             }
         }
 
-        cout << (res == 0 ? "YES" : "NO") << endl;
+        if (!ps.empty())
+        {
+            flag = false;
+        }
+
+        cout << (flag ? "YES" : "NO") << endl;
     }
 }
